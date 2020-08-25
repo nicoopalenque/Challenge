@@ -1,0 +1,55 @@
+<br><br>
+<div class="container">
+    <button type="button" class="btn btn-primary" (click)="getClients()" data-toggle="modal" data-target="#exampleModal">
+        Ver listado de Clientes
+      </button>
+      
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-xl" >
+          <div class="modal-content" >
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Lista de Clientes</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="text-align: center" colspan="6">Clientes</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">DNI</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Foto Frente</th>
+                                <th scope="col">Foto Dorso</th>
+                                <th scope="col">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let item of clients">
+                                <td>{{item.c_dni}}</td>
+                                <td>{{item.c_name}}</td>
+                                <td>{{item.c_lastname}}</td>
+                                <td><a href="{{item.c_dni_front}}" target="_blank">Ver imagen</a></td>
+                                <td><a href="{{item.c_dni_back}}" target="_blank">Ver imagen</a></td>
+                                <td><button type="button" class="btn btn-danger" (click)="deleteClient(item)" data-dismiss="modal">Eliminar</button></td>
+                              
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+</div>
+
